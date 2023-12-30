@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { ProductCard } from './component/ProductCard';
+import TitleBar from './component/Titlebar';
 
 export default function Home() {
   const [productData, setProductData] = useState([])
@@ -20,8 +21,8 @@ export default function Home() {
   },[]);
   return (  
      <>
+     <TitleBar />
      <ProductCard />
-     <h1 className="text-3xl font-bold underline">Hello</h1>
-     </>
+      </>
   )
 }

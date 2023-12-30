@@ -13,7 +13,7 @@ export function ProductCard (props: IAppProps) {
         <React.Fragment key={ind}> 
         <div className='xs:col-span-6 max-sm:col-span-6 max-md:col-span-4 max-lg:col-span-4 col-span-4 width-[90%] m-[5%] bg-[#FFFFFF] rounded-[15px] p-[3%]'>
             <div className='flex flex-row'>
-              <p className='w-2/4 text-left'>RUBI-128K</p>
+              <p className='w-2/4 text-left bg-golden-bg text-transparent bg-clip-text'>RUBI-128K</p>
               <p className='w-2/4 text-right'>K</p>
             </div>
             <div className='w-full flex justify-center'>

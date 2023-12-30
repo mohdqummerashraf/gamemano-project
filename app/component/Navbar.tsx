@@ -15,9 +15,10 @@ const Navbar = (props: Props) => {
           alt="Picture of the author"
         />
       </div>
-      <div className='col-span-8 flex justify-center text-white	'>
-        <p className='border-5 border-white-900 p-[2px]'>Services</p>
-        <p className=''>Close</p>
+      <div className='col-span-8 flex justify-center text-white	items-end'>
+        
+        <p className='rounded-full border-2	border-inherit border-[buttonBorder]-900 bg-button-bg text-transparent bg-clip-text mr-[3%] px-[8px]'>Home</p>
+        <p className='border-5 border-white-900 bg-button-bg text-transparent bg-clip-text'>Products</p>
       </div>
 
     </div>

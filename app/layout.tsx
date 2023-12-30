@@ -3,6 +3,7 @@ import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import Navbar from './component/Navbar'
 import Bottombar from './component/Bottombar'
+import Head from 'next/head'
 
 	
 const poppins = Poppins({
@@ -28,9 +29,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
 
+      <link href="https://fonts.cdnfonts.com/css/routhem" rel="stylesheet" />
+
+      </Head>
+      
+                
       <body className={poppins.className}>
         <Navbar />
+
         {children}
         <Bottombar />
       </body>
