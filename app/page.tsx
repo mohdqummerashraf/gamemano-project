@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 import TitleBar from './component/Titlebar';
 import ProductCard from './component/ProductCard';
 import { ProductInterface } from './component/Product.types';
-
- 
+import Homebanner from "@/app/utility/images/HomePageBanner.png"; 
+import ProductCarousel from './component/ProductCarousel';
 
 
 export default function Home() {
@@ -31,7 +31,12 @@ export default function Home() {
   },[]);
    return (  
      <>
-     <TitleBar />
+     <div className='relative'>
+     {/* <ProductCarousel /> */}
+     <TitleBar image={Homebanner.src} title='Logo Electronics' tagline='The techies you love' button='View All Products' bannerHeight={550}/>
+      
+     </div>
+      
      <ProductCard data={productData} loading={LoadingData}/>
       </>
   )

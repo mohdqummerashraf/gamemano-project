@@ -53,12 +53,12 @@ const page = () => {
         <>
             <TitleBar image={ProductDetailBanner.src} title="Products Details" />
             <div className="grid grid-cols-12 bg-[#380D41] p-[5%]">
-                <p className='col-span-12 width-full text-center text-white text-[28px] capitalize'>{productDetails?.title}</p>
+                <p className='col-span-12 width-full text-center text-white text-[28px] capitalize mb-[2rem]'>{productDetails?.title}</p>
                 <div className='col-span-12'>
-                    <div className='w-[60%] bg-[#E4E4E4] border-2 rounded-[20px] border-[#A8620A] m-auto'>
+                    <div className='max-xs:w-[90%] max-sm:w-[90%] max-md:w-[70%] w-[60%] bg-[#E4E4E4] border-2 rounded-[20px] border-[#A8620A] m-auto'>
                         <div className="grid grid-cols-12">
-                            <div className='col-span-4  flex justify-center item-center'>
-                                <div className='w-[90%] bg-[#E4E4E4] border-2 border-[#A8620A] m-auto'>
+                            <div className='max-xs:col-span-12 max-sm:col-span-12 col-span-4  flex justify-center item-center'>
+                                <div className='max-xs:my-[4%] max-sm:my-[4%] w-[90%] bg-[#E4E4E4] border-2 border-[#A8620A] m-auto'>
                                     <div className='w-full flex justify-center item-center'>
                                         <Image
                                             src={productDetails?.thumbnail || <ImageLoader width={200} height={200}/>}
@@ -71,7 +71,7 @@ const page = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-span-8 p-[7%]'>
+                            <div className='max-xs:col-span-12 max-xs:px-[15%] max-sm:col-span-12 max-sm:px-[15%] col-span-8 p-[7%]'>
                                 <div className='flex flex-col justify-center item-center text-justify'>
                                     <p className='text-black text-[24px] font-poppins'>{productDetails?.title}</p>
                                     <div className='flex'>
@@ -79,8 +79,8 @@ const page = () => {
                                         <p>(12)</p>
                                     </div>
                                     <p className='text-[#131313] text-[16px] font-poppins tracking-[1px] my-[20px]'>{productDetails?.description}</p>
-                                    <p>{`Price: Rs ${productDetails?.price}`}</p>
-                                    <p>{`Discount: ${productDetails?.discountPercentage}`}</p>
+                                    <p className='text-[#000] text-[20px] font-poppins font-[400]'>{`Price: Rs ${productDetails?.price}`}</p>
+                                    <p className='text-[#000] text-[20px] font-poppins font-[400]'>{`Discount: ${productDetails?.discountPercentage}`}</p>
                                 </div>
                             </div>
                         </div>
