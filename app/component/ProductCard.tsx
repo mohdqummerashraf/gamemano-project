@@ -2,32 +2,45 @@
 import Image from 'next/image';
 import * as React from 'react';
 import headPhone from "@/app/utility/images/Headphone.png"
-
-export interface IAppProps {
+import { ProductInterface } from './Product.types';
+import Link from 'next/link';
+ 
+interface ProductType {
+  data: Array<ProductInterface>
+  loading: Boolean
 }
 
-export function ProductCard (props: IAppProps) {
+
+const ProductCard =({data, loading}: ProductType) =>{
+
   return (
     <div className="grid grid-cols-12 bg-[#380D41] p-[5%]">
-      {[1,2,3,4].map((item,ind)=>(
+      {loading  ? 
+      <h1 className='text-[40px]'>Loading......</h1>
+      :
+      data.map((item,ind)=>(
         <React.Fragment key={ind}> 
-        <div className='xs:col-span-6 max-sm:col-span-6 max-md:col-span-4 max-lg:col-span-4 col-span-4 width-[90%] m-[5%] bg-[#FFFFFF] rounded-[15px] p-[3%]'>
-            <div className='flex flex-row'>
-              <p className='w-2/4 text-left bg-golden-bg text-transparent bg-clip-text'>RUBI-128K</p>
-              <p className='w-2/4 text-right'>K</p>
+        <div className='min-h-[550px] xs:col-span-6 max-sm:col-span-6 max-md:col-span-4 max-lg:col-span-4 col-span-4 width-[90%] m-[5%] bg-[#FFFFFF] rounded-[15px] p-[3%] relative'>
+            <div className='flex flex-row pb-[15px]'>
+              <p className='w-[75%] text-left bg-golden-bg text-transparent bg-clip-text'>{item?.brand}</p>
+              <p className='w-[25%] text-right'>K</p>
             </div>
             <div className='w-full flex justify-center'>
             <Image 
-            src={headPhone}
+            src={item?.thumbnail}
             height={200}
+            width={300}
             alt="Picture of the author"
-            className='w-full	'
+            className='object-contain	w-[100%] h-[300px]'
             />
             </div>
-            <p className='w-full text-center font-poppins font-normal color-[#000]  max-sm:text-l	 max-md:text-2xl text-3xl my-[1.6rem]'>Headphone-128K</p>
-            <div className='flex flex-row bg-pink-900 rounded-3xl py-[15px] bg-button-bg'>
-              <p className='w-full text-center font-poppins font-normal color-[#000] max-sm:text-md	 max-md:text-xl text-xl'>View</p>
+            <p className='grow-1 w-full text-center font-poppins font-normal color-[#000]  max-sm:text-l	 max-md:text-2xl text-3xl my-[1.6rem]'>{item?.title}</p>
+            <div
+            className='z-10 flex flex-row bg-pink-900 rounded-3xl py-[15px] bg-button-bg absolute w-[94%] bottom-[2%]'>
+              <Link 
+                    href={`/product-detail/${item.id}`}
 
+              className='w-full text-center font-poppins font-normal color-[#000] max-sm:text-md	 max-md:text-xl text-xl'>View</Link>
             </div>
         </div>
         </React.Fragment>
@@ -35,3 +48,5 @@ export function ProductCard (props: IAppProps) {
     </div>
   );
 }
+
+export default ProductCard;
