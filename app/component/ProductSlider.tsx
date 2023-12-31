@@ -16,7 +16,7 @@ const ProductSlider = ({ data, loading }: ProductType) => {
    const sliderRef = useRef<Slider>(null);
 
   const [screenSize, setScreenSize] = useState({
-    width: window?.innerWidth,
+    width: undefined || 0,
      
   });
 
