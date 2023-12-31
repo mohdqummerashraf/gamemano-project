@@ -143,6 +143,7 @@ const page = () => {
                                                         width={30}
                                                         height={30}
                                                         alt='golden star'
+                                                        loading='lazy'
                                                     />
                                                 </React.Fragment>
                                             ))}
@@ -172,6 +173,7 @@ const page = () => {
                                             width={200}
                                             alt="Picture of the author"
                                             className='w-full h-[200px] object-contain'
+                                            loading='lazy'
                                         />
                                     </div>
                                 </div>

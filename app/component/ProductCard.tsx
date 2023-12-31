@@ -32,6 +32,7 @@ const ProductCard =({data, loading}: ProductType) =>{
                 alt='fav'
                 width={25}
                 height={25}
+                loading='lazy'
                />
               </div>
                
@@ -42,10 +43,11 @@ const ProductCard =({data, loading}: ProductType) =>{
             alt="Picture of the author"
             width={300}
             height={200}
-            className='object-contain	w-[100%] h-[300px] max-xs:h-[100%] max-sm:h-[200px] max-md:h-[200px] max-lg:h-[250px]'
+            loading='lazy'
+            className='object-contain	w-auto h-[300px] h-[100%] sm:h-[200px] md:h-[200px] lg:h-[250px] xl:h-[250px]'
             />
             </div>
-            <p className='grow-1 w-full text-center font-poppins font-normal color-[#000] max-xs:text[20px] max-sm:text-[20px]	max-md:text-xl text-3xl my-[1.6rem]'>{item?.title}</p>
+            <p className='grow-1 w-full text-center font-poppins font-normal text-[#000] max-xs:text[20px] max-sm:text-[20px]	max-md:text-xl text-3xl my-[1.6rem]'>{item?.title}</p>
             <div
             className=' max-xs:py-[10px] max-sm:py-[10px] py-[15px] z-10 flex flex-row bg-pink-900 rounded-3xl  bg-button-bg absolute w-[94%] bottom-[2%]'>
               <Link 
@@ -60,6 +62,7 @@ const ProductCard =({data, loading}: ProductType) =>{
               width={30}
               height={30}
               alt='view all'
+              loading='lazy'
                
                 />
               </div>

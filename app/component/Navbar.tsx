@@ -24,6 +24,7 @@ const Navbar = ({openMobileNav, setOpenMenu}: Props) => {
           alt='open'
           className='w-[50px] h-[30px] absolute top-[5%] right-[10%]'
           onClick={()=>setOpenMenu(false)}
+          loading='lazy'
           
         />
         <div className='flex flex-col h-[100%] items-center relative top-[30%]'>
@@ -33,15 +34,16 @@ const Navbar = ({openMobileNav, setOpenMenu}: Props) => {
             height={100}
             alt="Picture of the author"
             className='relative top-[-10%]'
+            loading='lazy'
           />
 
 
           <Link
             href='/'
-            className={pathname === '/product' ? 'border-5 border-white-900 bg-button-bg text-transparent bg-clip-text my-[3%]' : 'rounded-full border-2	border-inherit border-[buttonBorder]-900 bg-button-bg text-transparent bg-clip-text my-[3%] px-[8px]'}>Home</Link>
+            className={pathname === '/product' ? 'text-[28px] border-5 border-white-900 bg-button-bg text-transparent bg-clip-text my-[3%]' : 'text-[28px] rounded-full border-2	border-inherit border-[buttonBorder]-900 bg-button-bg text-transparent bg-clip-text my-[3%] px-[8px]'}>Home</Link>
           <Link
             href='/product'
-            className={pathname === '/product' ? 'rounded-full border-2	border-inherit border-[buttonBorder]-900 bg-button-bg text-transparent bg-clip-text  px-[8px]' : 'border-5 border-white-900 bg-button-bg text-transparent bg-clip-text'}>Products</Link>
+            className={pathname === '/product' ? 'text-[28px] rounded-full border-2	border-inherit border-[buttonBorder]-900 bg-button-bg text-transparent bg-clip-text  px-[8px]' : 'text-[28px] border-5 border-white-900 bg-button-bg text-transparent bg-clip-text'}>Products</Link>
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import Slider from 'react-slick'
  import Image from 'next/image'
@@ -119,6 +120,7 @@ const ProductSlider = ({ data, loading }: ProductType) => {
                         height={150}
                         width={200}
                         alt="Picture of the author"
+                        loading='lazy'
                         className='w-full h-[150px] object-contain'
                       />
                     </div>
@@ -133,6 +135,7 @@ const ProductSlider = ({ data, loading }: ProductType) => {
                             width={20}
                             height={20}
                             alt='golden star'
+                            loading='lazy'
                           />
                         </React.Fragment>
                       ))}

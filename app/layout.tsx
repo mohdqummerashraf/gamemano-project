@@ -55,6 +55,7 @@ const [openMobileNav, setOpenMobileNav] = useState<Boolean>(false);
         alt='open'
         className='w-[40px] h-[30px] absolute right-[10%] top-[30px] z-[101] lg:hidden xl:hidden'
         onClick={()=>setOpenMobileNav(true)}
+        loading='lazy'
         />}
         {children}
         <Bottombar />

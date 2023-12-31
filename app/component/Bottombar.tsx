@@ -1,7 +1,7 @@
+'use client';
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import borderLine from "@/app/utility/images/BottomBorderLine.png"
-import logo from "@/app/utility/images/Logo.png";
+ import logo from "@/app/utility/images/Logo.png";
 import fbIcon from "@/app/utility/images/FacebookIcon.png";
 import instaIcon from "@/app/utility/images/InstaIcon.png";
 import twitterIcon from "@/app/utility/images/TwiiterIcon.png";
@@ -11,6 +11,8 @@ import maskBg from "../../public/MaskBg.png";
 import MobileMaskBg from "../utility/images/MobileBottomBg.png";
 import BottomBgMobile from "../../public/BottomBgMobile.png";
 import RocketLogo from "@/app/utility/images/RocketLogo.png"
+ 
+
  type Props = {}
 
 const Bottombar = (props: Props) => {
@@ -78,7 +80,6 @@ const Bottombar = (props: Props) => {
 
 
 
-
    return (
     <>
 
@@ -95,14 +96,16 @@ const Bottombar = (props: Props) => {
           
           <Image
             src={RocketLogo}
+            loading='lazy'
             alt='go-to-top'
-            className='absolute top-[-6%] right-[12%] w-[80px] h-[100px] lg:w-[100px] lg:h-[100px] lg:top-[-8%] lg:right-[12%]'
+            className='absolute top-[-6%] right-[12%] w-[60px] h-[90px] lg:w-[100px] lg:h-[100px] lg:top-[-8%] lg:right-[12%]'
           />
 
           <div className='col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-4 xl:col-span-4 2xl:col-span-4'>
             <div className='w-full flex justify-center lg:justify-center'>
               <Image
                 src={logo}
+                loading='lazy'
                 className='w-[35%] sm:w-[35%] md:w-[35%] lg:w-[35%] mb-[5%]'
                 alt='border-line'
 
@@ -133,6 +136,7 @@ const Bottombar = (props: Props) => {
                       src={item.imgUrl}
                       alt={item.name}
                       className='w-[50px] h-[40px] mx-[2%]'
+                      loading='lazy'
                     />
                   </React.Fragment>
                 ))
