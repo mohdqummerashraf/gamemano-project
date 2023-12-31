@@ -1,14 +1,19 @@
 'use client'
-import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import TitleBar from './component/Titlebar';
 import ProductCard from './component/ProductCard';
 import { ProductInterface } from './model/Product.types';
 import Homebanner from "@/app/utility/images/HomePageBanner.png";
-import ProductSlider from './component/ProductSlider';
-import Link from 'next/link';
+ import Link from 'next/link';
 import Loading from './component/Loading';
+import dynamic from 'next/dynamic';
  
+const ProductSlider = dynamic(()=>import('./component/ProductSlider'),{
+  ssr:false,
+  loading: ()=> <>
+  <Loading />
+  </>
+}) 
 
 export default function Home() {
   const [productData, setProductData] = useState<ProductInterface[]>([]);

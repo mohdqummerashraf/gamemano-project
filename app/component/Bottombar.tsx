@@ -1,4 +1,4 @@
-'use client';
+
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
  import logo from "@/app/utility/images/Logo.png";
@@ -85,7 +85,7 @@ const Bottombar = (props: Props) => {
 
       <div className='w-full bg-[#380D41] '>
         <div
-          style={(screenSize.width)>768 ? {
+          style={(screenSize.width)>1020 ? {
             backgroundImage: `url(${bottomBg.src}), url(${maskBg.src})`,
             backgroundRepeat: 'round'
           } : {
@@ -98,7 +98,7 @@ const Bottombar = (props: Props) => {
             src={RocketLogo}
             loading='lazy'
             alt='go-to-top'
-            className='absolute top-[-6%] right-[12%] w-[60px] h-[90px] lg:w-[100px] lg:h-[100px] lg:top-[-8%] lg:right-[12%]'
+            className='absolute top-[-5%] right-[12%] w-[60px] h-[90px] lg:w-[100px] lg:h-[100px] lg:top-[-8%] lg:right-[12%]'
           />
 
           <div className='col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-4 xl:col-span-4 2xl:col-span-4'>

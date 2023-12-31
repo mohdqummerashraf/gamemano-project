@@ -112,7 +112,7 @@ const page = () => {
            :
            <>
            <TitleBar image={ProductDetailBanner.src} title="Products Details" />
-            <div className='bg-[#380D41] pb-[10%]'>
+            <div className='bg-[#380D41] pb-[25%] sm:pb-[25%] md:pd-[15%] lg:pb-[10%]'>
                 <div className="grid grid-cols-12 bg-[#380D41] p-[5%]">
                     <p className='col-span-12 width-full text-center text-white text-[28px] capitalize mb-[2rem]'>{productDetails?.title}</p>
                     <div className='col-span-12'>
