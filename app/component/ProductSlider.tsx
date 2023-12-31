@@ -13,13 +13,13 @@ interface ProductType {
 }
 
 const ProductSlider = ({ data, loading }: ProductType) => {
-  const [showArrow, setShowArrow] = useState<Boolean>(true);
-  const sliderRef = useRef<Slider>(null);
+   const sliderRef = useRef<Slider>(null);
 
   const [screenSize, setScreenSize] = useState({
-    width: window.innerWidth,
+    width: window?.innerWidth,
      
   });
+
  
   const settings = {
     dots: false,
@@ -57,22 +57,25 @@ const ProductSlider = ({ data, loading }: ProductType) => {
   };
 
  
+   
   
-
- 
   useEffect(() => {
+    if(typeof window !== 'undefined'){
+
+    
     const handleResize = () => {
       setScreenSize({
-        width: window.innerWidth,
+        width: window?.innerWidth,
          
       });
     };
 
-    window.addEventListener('resize', handleResize);
+    window?.addEventListener('resize', handleResize);
 
      return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+      window?.removeEventListener('resize', handleResize);
+    }
+  }
   }, []);
 
   return (

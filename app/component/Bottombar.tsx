@@ -52,24 +52,28 @@ const Bottombar = (props: Props) => {
 
  
   const [screenSize, setScreenSize] = useState({
-    width: window.innerWidth,
+    width: window?.innerWidth,
      
   });
 
- console.log("screenSize", screenSize)
+  
   useEffect(() => {
+    if(typeof window !== 'undefined'){
+
+    
     const handleResize = () => {
       setScreenSize({
-        width: window.innerWidth,
+        width: window?.innerWidth,
          
       });
     };
 
-    window.addEventListener('resize', handleResize);
+    window?.addEventListener('resize', handleResize);
 
      return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+      window?.removeEventListener('resize', handleResize);
+    }
+  }
   }, []);
 
 
