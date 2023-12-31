@@ -2,10 +2,11 @@
 import Image from 'next/image';
 import * as React from 'react';
 import headPhone from "@/app/utility/images/Headphone.png"
-import { ProductInterface } from './Product.types';
+import { ProductInterface } from '../model/Product.types';
 import Link from 'next/link';
 import FavTag from "@/app/utility/images/FavoriteTag.png"
 import ViewAll from "@/app/utility/images/ViewAll.png"
+import Loading from './Loading';
  
 interface ProductType {
   data: Array<ProductInterface>
@@ -18,7 +19,7 @@ const ProductCard =({data, loading}: ProductType) =>{
   return (
     <div className="grid grid-cols-12 bg-[#380D41] p-[5%]">
       {loading  ? 
-      <h1 className='text-[40px]'>Loading......</h1>
+      <Loading />
       :
       data.map((item,ind)=>(
         <React.Fragment key={ind}> 

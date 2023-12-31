@@ -24,6 +24,7 @@ const Navbar = ({openMobileNav, setOpenMenu}: Props) => {
           alt='open'
           className='w-[50px] h-[30px] absolute top-[5%] right-[10%]'
           onClick={()=>setOpenMenu(false)}
+          
         />
         <div className='flex flex-col h-[100%] items-center relative top-[30%]'>
           <Image

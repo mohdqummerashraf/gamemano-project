@@ -3,11 +3,12 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import TitleBar from './component/Titlebar';
 import ProductCard from './component/ProductCard';
-import { ProductInterface } from './component/Product.types';
+import { ProductInterface } from './model/Product.types';
 import Homebanner from "@/app/utility/images/HomePageBanner.png";
 import ProductSlider from './component/ProductSlider';
 import Link from 'next/link';
-
+import Loading from './component/Loading';
+ 
 
 export default function Home() {
   const [productData, setProductData] = useState<ProductInterface[]>([]);
@@ -33,14 +34,14 @@ export default function Home() {
   return (
     <>
       {LoadingData ?
-        <h2>Loading...</h2>
+        <Loading />
         :
         <>
           <div className='relative'>
             <TitleBar image={Homebanner.src} title='Logo Electronics' tagline='The techies you love' button='View All Products' bannerHeight={550} />
             <ProductSlider data={productData.slice(0,10)} loading={LoadingData} />
           </div>
-          <p className='max-xs:text-[30px] max-sm:text-[30px]  text-[#F903AA] bg-[#380D41] text-center text-[40px] font-routhem  max-sm:pt-[85%] md:pt-[40%] lg:pt-[25%] xl:pt-[20%] 2xl:pt-[15%]'>{'Products'}</p>
+          <p className='text-[30px] sm:text-[30px]  text-[#F903AA] bg-[#380D41] text-center text-[40px] font-routhem pt-[90%]  sm:pt-[50%] md:pt-[40%] lg:pt-[25%] xl:pt-[20%] 2xl:pt-[15%]'>{'Products'}</p>
 
           <ProductCard data={productData.slice(0, 15)} loading={LoadingData} />
           <div className='bg-[#380D41] w-full pb-[10%]'>

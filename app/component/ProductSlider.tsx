@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Slider from 'react-slick'
  import Image from 'next/image'
-import { ProductInterface } from './Product.types';
+import { ProductInterface } from '../model/Product.types';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Goldenstar from "@/app/utility/images/GoldenStar.png"
@@ -16,8 +16,11 @@ const ProductSlider = ({ data, loading }: ProductType) => {
   const [showArrow, setShowArrow] = useState<Boolean>(true);
   const sliderRef = useRef<Slider>(null);
 
-  console.log("data", data)
-
+  const [screenSize, setScreenSize] = useState({
+    width: window.innerWidth,
+     
+  });
+ 
   const settings = {
     dots: false,
     infinite: true,
@@ -53,13 +56,31 @@ const ProductSlider = ({ data, loading }: ProductType) => {
     ]
   };
 
+  const mobileView = matchMedia("(max-width: 1030px)").matches;
 
+  
+
+ 
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+         
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+     return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <>
       <div className='grid grid-cols-12 absolute bottom-[-35%]'>
         <div
-          className='hidden sm:hidden md:hidden lg:col-span-3 xl:col-span-3 2xl:col-span-3 flex relative justify-end items-center top-[15px]'>
+          className={mobileView ? 'hidden' : 'lg:col-span-3 xl:col-span-3 2xl:col-span-3 flex relative justify-end items-center top-[15px]'}>
 
           <svg
             onClick={() => sliderRef.current?.slickNext()}
@@ -107,8 +128,8 @@ const ProductSlider = ({ data, loading }: ProductType) => {
                         <React.Fragment key={ind}>
                           <Image
                             src={Goldenstar}
-                            width={30}
-                            height={30}
+                            width={20}
+                            height={20}
                             alt='golden star'
                           />
                         </React.Fragment>

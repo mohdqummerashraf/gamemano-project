@@ -1,11 +1,12 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../component/ProductCard'
-import { ProductInterface } from '../component/Product.types';
+import { ProductInterface } from '../model/Product.types';
 import TitleBar from '../component/Titlebar';
 import ProductPageBanner from "@/app/utility/images/ProductPageBanner.png";
- 
- 
+import Loading from '../component/Loading';
+
+
 function page() {
 
   const [categoryList, setCategoryList] = useState<[]>([]);
@@ -17,25 +18,21 @@ function page() {
     setSelectedCategory(value)
   }
 
-  const fetchCategory =async () => {
-    // setLoadingData(true);
+  const fetchCategory = async () => {
     try {
       const fetchData = await fetch("https://dummyjson.com/products/categories");
       const response = await fetchData.json();
       setCategoryList(response);
-      // setLoadingData(false);
     } catch (error) {
-      // setLoadingData(false);
       console.log(error);
-    }finally{
-      // setLoadingData(false);
+    } finally {
     }
   }
 
-  const fetchSelectedProduct =async () => {
+  const fetchSelectedProduct = async () => {
     setProductData([]);
     setLoadingData(true);
-     try {
+    try {
       const fetchData = await fetch(`https://dummyjson.com/products/category/${selectedCategory}`);
       const response = await fetchData.json();
       setProductData(response?.products);
@@ -43,12 +40,12 @@ function page() {
     } catch (error) {
       setLoadingData(false);
       console.log(error);
-    }finally{
+    } finally {
       setLoadingData(false);
     }
   }
 
-  const fetchAllProduct =async () => {
+  const fetchAllProduct = async () => {
     setProductData([]);
     setLoadingData(true);
     try {
@@ -59,54 +56,60 @@ function page() {
     } catch (error) {
       setLoadingData(false);
       console.log(error);
-    }finally{
+    } finally {
       setLoadingData(false);
     }
   }
-  
 
-  useEffect(()=>{
-    if(selectedCategory){
+
+  useEffect(() => {
+    if (selectedCategory) {
       fetchSelectedProduct()
-    }else{
+    } else {
       fetchAllProduct()
-    }     
-  },[selectedCategory]);
+    }
+  }, [selectedCategory]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchCategory();
-  },[])
-  
+  }, [])
+
 
   return (
     <>
-    <TitleBar image={ProductPageBanner.src} title="Products" />
-      <div className='grid grid-cols-12 bg-[#380D41] px-[5%]'>
-        <div className='max-xs:col-span-12  max-xs:mx-auto max-sm:col-span-12 max-sm:mx-auto max-md:col-span-12 max-md:mx-auto  col-span-6'>
-          <p className='font-routhem text-[24px] font-[400] text-white p-[3%] w-max	'>{">> "}{selectedCategory || 'All Products'}</p>
-        </div>
-        <div className='max-xs:col-span-12 max-xs:mx-auto max-sm:col-span-12 max-sm:mx-auto max-md:col-span-12 max-md:mx-auto col-span-6 flex items-end flex-col'>
-          <div className='max-xs:w-[90%] max-xs:m-[5%] max-xs:p-[0]  max-sm:w-[90%] max-sm:m-[5%] max-sm:p-[0] max-md:w-[90%] max-md:m-[5%] max-md:p-[0] w-[50%] rounded-[15px] p-[3%]'>
-            <select 
-            value={selectedCategory}
-            defaultValue={'All Products'}
-            onChange={(e)=>selectCategory(e.target.value)}
-            className='rounded-xl p-[5px] font-poppins font-[600] font-[20px] text-[#ED19D8]'
-            >
-              {
-                categoryList.map((item, ind)=>(
-                  <React.Fragment key={ind}>
-                     <option value={item} 
-                     className='font-poppins font-[600] font-[20px] text-[#ED19D8]'
-                     >{item}</option>    
-                  </React.Fragment>
-                ))
-              }
-            </select>
+      {LoadingData && categoryList.length>0 ?
+        <Loading />
+        :
+        <>
+          <TitleBar image={ProductPageBanner.src} title="Products" />
+          <div className='grid grid-cols-12 bg-[#380D41] px-[5%]'>
+            <div className='max-xs:col-span-12  max-xs:mx-auto max-sm:col-span-12 max-sm:mx-auto max-md:col-span-12 max-md:mx-auto  col-span-6'>
+              <p className='font-routhem text-[24px] font-[400] text-white p-[3%] w-max	'>{">> "}{selectedCategory || 'All Products'}</p>
+            </div>
+            <div className='max-xs:col-span-12 max-xs:mx-auto max-sm:col-span-12 max-sm:mx-auto max-md:col-span-12 max-md:mx-auto col-span-6 flex items-end flex-col'>
+              <div className='max-xs:w-[90%] max-xs:m-[5%] max-xs:p-[0]  max-sm:w-[90%] max-sm:m-[5%] max-sm:p-[0] max-md:w-[90%] max-md:m-[5%] max-md:p-[0] w-[50%] rounded-[15px] p-[3%]'>
+                <select
+                  value={selectedCategory}
+                  defaultValue={'All Products'}
+                  onChange={(e) => selectCategory(e.target.value)}
+                  className='rounded-xl p-[5px] font-poppins font-[600] font-[20px] text-[#ED19D8]'
+                >
+                  {
+                    categoryList.map((item, ind) => (
+                      <React.Fragment key={ind}>
+                        <option value={item}
+                          className='font-poppins font-[600] font-[20px] text-[#ED19D8]'
+                        >{item}</option>
+                      </React.Fragment>
+                    ))
+                  }
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <ProductCard data={productData} loading={LoadingData}/>
+          <ProductCard data={productData} loading={LoadingData} />
+        </>
+      }
 
     </>
   )

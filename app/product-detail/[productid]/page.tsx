@@ -1,5 +1,4 @@
 'use client'
-import TitleBar from '@/app/component/Titlebar'
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
@@ -8,6 +7,8 @@ import ProductDetailBanner from "@/app/utility/images/ProductDetailBanner.png"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Goldenstar from "@/app/utility/images/GoldenStar.png"
+import TitleBar from '../../component/Titlebar';
+import Loading from '../../component/Loading';
 
 type detailProps = {
     brand: string
@@ -106,57 +107,57 @@ const page = () => {
 
     return (
         <>
-            <TitleBar image={ProductDetailBanner.src} title="Products Details" />
+           {LoadingData ?
+           <Loading />
+           :
+           <>
+           <TitleBar image={ProductDetailBanner.src} title="Products Details" />
             <div className='bg-[#380D41] pb-[10%]'>
-                {LoadingData ?
-                    <h2>Loading........</h2>
-                    :
-                    <div className="grid grid-cols-12 bg-[#380D41] p-[5%]">
-                        <p className='col-span-12 width-full text-center text-white text-[28px] capitalize mb-[2rem]'>{productDetails?.title}</p>
-                        <div className='col-span-12'>
-                            <div className='max-xs:w-[90%] max-sm:w-[90%] max-md:w-[70%] w-[60%] bg-[#E4E4E4] border-2 rounded-[20px] border-[#A8620A] m-auto'>
-                                <div className="grid grid-cols-12">
-                                    <div className='max-xs:col-span-12 max-sm:col-span-12 col-span-4  flex justify-center item-center'>
-                                        <div className='max-xs:my-[4%] max-sm:my-[4%] w-[90%] bg-[#E4E4E4] border-2 border-[#A8620A] m-auto'>
-                                            <div className='w-full flex justify-center item-center'>
-                                                <Image
-                                                    src={imgSrc}
-                                                    alt="Picture of the author"
-                                                    className='w-[380px]'
-                                                    height={400}
-                                                    width={300}
-                                                // loading = {<ImageLoader />}
-                                                />
-                                            </div>
+                <div className="grid grid-cols-12 bg-[#380D41] p-[5%]">
+                    <p className='col-span-12 width-full text-center text-white text-[28px] capitalize mb-[2rem]'>{productDetails?.title}</p>
+                    <div className='col-span-12'>
+                        <div className='max-xs:w-[90%] max-sm:w-[90%] max-md:w-[70%] w-[60%] bg-[#E4E4E4] border-2 rounded-[20px] border-[#A8620A] m-auto'>
+                            <div className="grid grid-cols-12">
+                                <div className='max-xs:col-span-12 max-sm:col-span-12 col-span-4  flex justify-center item-center'>
+                                    <div className='max-xs:my-[4%] max-sm:my-[4%] w-[90%] bg-[#E4E4E4] border-2 border-[#A8620A] m-auto'>
+                                        <div className='w-full flex justify-center item-center'>
+                                            <Image
+                                                src={imgSrc}
+                                                alt="Picture of the author"
+                                                className='w-[380px]'
+                                                height={400}
+                                                width={300}
+                                            // loading = {<ImageLoader />}
+                                            />
                                         </div>
                                     </div>
-                                    <div className='max-xs:col-span-12 max-xs:px-[15%] max-sm:col-span-12 max-sm:px-[15%] col-span-8 p-[7%]'>
-                                        <div className='flex flex-col justify-center item-center text-justify'>
-                                            <p className='text-black text-[24px] font-poppins'>{productDetails?.title}</p>
-                                            <div className='flex'>
-                                                {new Array(Math.round(productDetails?.rating || 0)).fill(0).map((item, ind) => (
-                                                    <React.Fragment key={ind}>
-                                                        <Image
-                                                            src={Goldenstar}
-                                                            width={30}
-                                                            height={30}
-                                                            alt='golden star'
-                                                        />
-                                                    </React.Fragment>
-                                                ))}
-                                                <p className='flex justify-center items-center mt-[6px] ml-[6px]'>({Math.round(productDetails?.rating || 0)})</p>
-                                            </div>
-                                            <p className='text-[#131313] text-[16px] font-poppins tracking-[1px] my-[20px]'>{productDetails?.description}</p>
-                                            <p className='text-[#000] text-[20px] font-poppins font-[400]'>{`Price: Rs ${productDetails?.price}`}</p>
-                                            <p className='text-[#000] text-[20px] font-poppins font-[400]'>{`Discount: ${productDetails?.discountPercentage}`}</p>
+                                </div>
+                                <div className='max-xs:col-span-12 max-xs:px-[15%] max-sm:col-span-12 max-sm:px-[15%] col-span-8 p-[7%]'>
+                                    <div className='flex flex-col justify-center item-center text-justify'>
+                                        <p className='text-black text-[24px] font-poppins'>{productDetails?.title}</p>
+                                        <div className='flex'>
+                                            {new Array(Math.round(productDetails?.rating || 0)).fill(0).map((item, ind) => (
+                                                <React.Fragment key={ind}>
+                                                    <Image
+                                                        src={Goldenstar}
+                                                        width={30}
+                                                        height={30}
+                                                        alt='golden star'
+                                                    />
+                                                </React.Fragment>
+                                            ))}
+                                            <p className='flex justify-center items-center mt-[6px] ml-[6px]'>({Math.round(productDetails?.rating || 0)})</p>
                                         </div>
+                                        <p className='text-[#131313] text-[16px] font-poppins tracking-[1px] my-[20px]'>{productDetails?.description}</p>
+                                        <p className='text-[#000] text-[20px] font-poppins font-[400]'>{`Price: Rs ${productDetails?.price}`}</p>
+                                        <p className='text-[#000] text-[20px] font-poppins font-[400]'>{`Discount: ${productDetails?.discountPercentage}`}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                    </div>}
-
+                </div>
                 <div className='w-[80%] m-auto bg-[#380D41]'>
                     <div className='mt-10'>
                         <Slider {...settings} ref={sliderRef}>
@@ -217,9 +218,10 @@ const page = () => {
                             </linearGradient>
                         </defs>
                     </svg>
-
                 </div>
             </div>
+            </>
+            }
         </>
     )
 }
