@@ -43,7 +43,7 @@ const ProductCard =({data, loading}: ProductType) =>{
             width={300}
             height={200}
             loading='lazy'
-            className='object-contain	w-auto h-[300px] h-[100%] sm:h-[200px] md:h-[200px] lg:h-[250px] xl:h-[250px]'
+            className='object-contain	w-auto h-[300px] h-[200px] sm:h-[200px] md:h-[200px] lg:h-[250px] xl:h-[250px]'
             />
             </div>
             <p className='grow-1 w-full text-center font-poppins font-normal text-[#000] max-xs:text[20px] max-sm:text-[20px]	max-md:text-xl text-3xl my-[1.6rem]'>{item?.title}</p>
