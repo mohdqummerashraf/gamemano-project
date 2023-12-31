@@ -54,7 +54,7 @@ const Bottombar = (props: Props) => {
 
  
   const [screenSize, setScreenSize] = useState({
-    width: undefined || 0,
+    width: undefined || 1030,
      
   });
 

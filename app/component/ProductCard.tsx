@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image';
 import * as React from 'react';
-import headPhone from "@/app/utility/images/Headphone.png"
 import { ProductInterface } from '../model/Product.types';
 import Link from 'next/link';
 import FavTag from "@/app/utility/images/FavoriteTag.png"
