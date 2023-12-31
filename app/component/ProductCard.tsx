@@ -22,7 +22,7 @@ const ProductCard =({data, loading}: ProductType) =>{
       :
       data.map((item,ind)=>(
         <React.Fragment key={ind}> 
-        <div className='max-xs:col-span-12 max-xs:min-h-[350px] max-sm:col-span-12 max-sm:min-h-[400px] max-md:min-h-[400px] max-md:col-span-6 max-lg:col-span-4 max-lg:min-h-[550px] col-span-4 min-h-[550px] width-[90%] m-[5%] bg-[#FFFFFF] rounded-[15px] p-[3%] relative'>
+        <div className='col-span-12 min-h-[520px] sm:col-span-12 sm:min-h-[520px] md:min-h-[470px] md:col-span-6 lg:col-span-4 lg:min-h-[550px]   width-[90%] m-[5%] bg-[#FFFFFF] rounded-[15px] p-[3%] relative'>
             <div className='flex flex-row pb-[15px]'>
               <p className='w-[75%] text-left bg-golden-bg text-transparent bg-clip-text'>{item?.brand}</p>
               <div className='w-[25%] flex justify-end' >
