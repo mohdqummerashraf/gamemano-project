@@ -56,8 +56,7 @@ const ProductSlider = ({ data, loading }: ProductType) => {
     ]
   };
 
-  const mobileView = matchMedia("(max-width: 1030px)").matches;
-
+ 
   
 
  
@@ -80,7 +79,7 @@ const ProductSlider = ({ data, loading }: ProductType) => {
     <>
       <div className='grid grid-cols-12 absolute bottom-[-35%]'>
         <div
-          className={mobileView ? 'hidden' : 'lg:col-span-3 xl:col-span-3 2xl:col-span-3 flex relative justify-end items-center top-[15px]'}>
+          className={screenSize.width<1030 ? 'hidden' : 'lg:col-span-3 xl:col-span-3 2xl:col-span-3 flex relative justify-end items-center top-[15px]'}>
 
           <svg
             onClick={() => sliderRef.current?.slickNext()}

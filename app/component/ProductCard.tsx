@@ -17,7 +17,7 @@ interface ProductType {
 const ProductCard =({data, loading}: ProductType) =>{
 
   return (
-    <div className="grid grid-cols-12 bg-[#380D41] p-[5%]">
+    <div className="grid grid-cols-12 bg-[#380D41] px-[5%] pt-[5%] pb-[10%]">
       {loading  ? 
       <Loading />
       :

@@ -50,14 +50,13 @@ const Bottombar = (props: Props) => {
   }
   ]
 
-  const mobileView = matchMedia("(max-width: 768px)").matches;
-
+ 
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,
      
   });
 
- 
+ console.log("screenSize", screenSize)
   useEffect(() => {
     const handleResize = () => {
       setScreenSize({
@@ -81,7 +80,7 @@ const Bottombar = (props: Props) => {
 
       <div className='w-full bg-[#380D41] '>
         <div
-          style={!mobileView ? {
+          style={(screenSize.width)>768 ? {
             backgroundImage: `url(${bottomBg.src}), url(${maskBg.src})`,
             backgroundRepeat: 'round'
           } : {
