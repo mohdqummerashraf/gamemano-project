@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
-import logo from '@/app/utility/images/LOGO.png';
+import logo from '../utility/images/Logo.png';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Closemenu from "@/app/utility/images/CloseMenu.png";
