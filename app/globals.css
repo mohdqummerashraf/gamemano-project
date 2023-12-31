@@ -19,15 +19,40 @@
 
 body {
   color: rgb(var(--foreground-rgb));
- /*  background: linear-gradient(
+  /*  background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
 }
- 
+
 @font-face {
   font-family: "Routhem";
   src: url("../app/utility/font/Routhem.ttf");
+}
+
+.slick-slide>div {
+  margin: 0 10px
+}
+
+.mainBg {
+  height: 500px;
+  background-color: #000000;
+}
+
+
+
+.bottomBg {
+  /* background-image: url(./utility/images/BottomBarBg.png) url(./utility/images/MaskBg.png); */
+  background-repeat: 'round';
+  
+}
+
+@media (min-width: 320) and (max-width: 425px) {
+  .bottomBg{
+    /* background-image: url(./utility/images/MaskBg.png); */
+    background-repeat: 'round';
+    background-color: '#050A32';
+  }
 }

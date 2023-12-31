@@ -7,8 +7,8 @@ import Bottombar from './component/Bottombar'
 import Head from 'next/head'
 import Image from 'next/image'
 import OpenMenu from "@/app/utility/images/OpenMenu.png";
-import { useState } from 'react'
-
+import React, { useState } from 'react'
+ 
 
 	
 const poppins = Poppins({
@@ -58,7 +58,8 @@ const [openMobileNav, setOpenMobileNav] = useState<Boolean>(false);
         />}
         {children}
         <Bottombar />
-      </body>
+         
+       </body>
 
     </html>
   )

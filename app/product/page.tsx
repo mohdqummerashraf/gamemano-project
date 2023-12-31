@@ -83,7 +83,7 @@ function page() {
     <TitleBar image={ProductPageBanner.src} title="Products" />
       <div className='grid grid-cols-12 bg-[#380D41] px-[5%]'>
         <div className='max-xs:col-span-12  max-xs:mx-auto max-sm:col-span-12 max-sm:mx-auto max-md:col-span-12 max-md:mx-auto  col-span-6'>
-          <p className='font-routhem text-[24px] font-[400] text-white p-[3%] w-max	'>{">> "}ALL PRODUCT</p>
+          <p className='font-routhem text-[24px] font-[400] text-white p-[3%] w-max	'>{">> "}{selectedCategory || 'All Products'}</p>
         </div>
         <div className='max-xs:col-span-12 max-xs:mx-auto max-sm:col-span-12 max-sm:mx-auto max-md:col-span-12 max-md:mx-auto col-span-6 flex items-end flex-col'>
           <div className='max-xs:w-[90%] max-xs:m-[5%] max-xs:p-[0]  max-sm:w-[90%] max-sm:m-[5%] max-sm:p-[0] max-md:w-[90%] max-md:m-[5%] max-md:p-[0] w-[50%] rounded-[15px] p-[3%]'>

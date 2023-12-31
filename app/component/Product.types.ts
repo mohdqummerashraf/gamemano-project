@@ -1,11 +1,12 @@
  
 export interface ProductInterface {
-    id: Number,
+    id: number,
     title: string,
     description: string,
     brand: string,
-    rating:Number,
-    price: Number,
-    thumbnail: string
+    rating:number,
+    price: number,
+    thumbnail: string,
+    category?:string,
 }
  

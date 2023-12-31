@@ -1,9 +1,15 @@
 import React from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-type Props = {}
+import { ProductInterface } from './Product.types';
 
-const ProductCarousel = (props: Props) => {
+
+interface ProductType {
+    data: Array<ProductInterface>
+    loading: Boolean
+  }
+
+const ProductCarousel = ({data, loading}: ProductType) => {
     return (
         <>
             <Carousel 
