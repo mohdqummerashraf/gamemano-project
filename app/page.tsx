@@ -9,7 +9,7 @@ import Loading from './component/Loading';
 import dynamic from 'next/dynamic';
  
 const ProductSlider = dynamic(()=>import('./component/ProductSlider'),{
-  ssr:false,
+  ssr:true,
   loading: ()=> <>
   <Loading />
   </>

@@ -29,7 +29,7 @@ const metadata: Metadata = {
 }
 
 const BottomBar = dynamic(()=>import('./component/Bottombar'),{
-  ssr:false,
+  ssr:true,
   loading: ()=> <>
   <Loading />
   </>

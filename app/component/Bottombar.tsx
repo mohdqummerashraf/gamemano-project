@@ -60,8 +60,7 @@ const Bottombar = (props: Props) => {
 
   
   useEffect(() => {
-    if(typeof window !== 'undefined'){
-
+ 
     
     const handleResize = () => {
       setScreenSize({
@@ -75,7 +74,7 @@ const Bottombar = (props: Props) => {
      return () => {
       window?.removeEventListener('resize', handleResize);
     }
-  }
+  
   }, []);
 
 

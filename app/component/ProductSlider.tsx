@@ -60,9 +60,6 @@ const ProductSlider = ({ data, loading }: ProductType) => {
    
   
   useEffect(() => {
-    if(typeof window !== 'undefined'){
-
-    
     const handleResize = () => {
       setScreenSize({
         width: window?.innerWidth,
@@ -75,7 +72,6 @@ const ProductSlider = ({ data, loading }: ProductType) => {
      return () => {
       window?.removeEventListener('resize', handleResize);
     }
-  }
   }, []);
 
   return (
